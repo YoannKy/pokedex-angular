@@ -1,0 +1,22 @@
+.title-container {
+  height: fit-content;
+  background: rgb(251,251,251);
+  background: -moz-linear-gradient(234deg, rgba(33, 33, 33) 80%, rgba(204,6,7, 0) 86%);
+  background: -webkit-linear-gradient(234deg, rgba(33, 33, 33) 80%, rgba(204,6,7, 0) 86%);
+  background: linear-gradient(234deg, rgba(33, 33, 33) 80%, rgba(204,6,7, 0) 86%);
+  line-height: 7em;
+  padding: 2% 0;
+
+  .prev, .next, .list {
+    .icon {
+      font-size: 4em;
+      color: white;
+    }
+
+    &:disabled {
+      .icon {
+        opacity: 0.5;
+      }
+    }
+  }
+}

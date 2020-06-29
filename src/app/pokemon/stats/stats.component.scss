@@ -1,0 +1,89 @@
+.stats-container {
+  .chart-card {
+    cursor: pointer;
+    box-shadow: none;
+  }
+}
+
+#chart {
+  background: rgb(251,251,251);
+  background: -moz-linear-gradient(228deg, rgba(33, 33, 33) 80%, rgba(204,6,7, 0) 86%);
+  background: -webkit-linear-gradient(228deg, rgba(33, 33, 33) 80%, rgba(204,6,7, 0) 86%);
+  background: linear-gradient(228deg, rgba(33, 33, 33) 80%, rgba(204,6,7, 0) 86%);
+  max-width: 350px;
+  margin: 1% 0;
+}
+
+.pokemon-data {
+  background: rgb(251,251,251);
+  background: -moz-linear-gradient(228deg, rgba(33, 33, 33) 80%, rgba(204,6,7, 0) 86%);
+  background: -webkit-linear-gradient(228deg, rgba(33, 33, 33) 80%, rgba(204,6,7, 0) 86%);
+  background: linear-gradient(228deg, rgba(33, 33, 33) 80%, rgba(204,6,7, 0) 86%);
+  box-shadow: none;
+  margin: 1% 0 0 0;
+  text-align: left;
+
+  .content {
+    height: 100%
+  }
+}
+
+.switch {
+  color: white;
+  margin: 2% 0;
+}
+
+.attribute {
+  color: white;
+  font-size: 25px;
+  margin: 1% 0;
+  padding: 2% 0;
+}
+
+@media screen and (max-width: 1279px) {
+  .attribute {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .stats-container {
+    .pokemon-data {
+      background: rgb(251,251,251);
+      background: -moz-linear-gradient(228deg, rgba(33, 33, 33) 71%, rgba(204,6,7, 0) 86%);
+      background: -webkit-linear-gradient(228deg, rgba(33, 33, 33) 71%, rgba(204,6,7, 0) 86%);
+      background: linear-gradient(228deg, rgba(33, 33, 33) 71%, rgba(204,6,7, 0) 86%);
+      box-shadow: none;
+    }
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .pokemon-data {
+    margin: 3% 0 0 0;
+  }
+
+  .attribute {
+    margin: 3% 0;
+  }
+
+  #chart {
+    background: none;
+    background-color: #212121;
+    margin: 3% 0;
+  }
+  .stats-container {
+    margin: 0 6%;
+    .pokemon-data {
+      margin-left: 0;
+      background: none;
+      background-color: #212121;
+    }
+  }
+}
+
+@media screen and (min-width: 599px) and (max-width: 1919px) {
+  .attack-relations, .defense-relations {
+    max-width: 50%;
+  }
+}

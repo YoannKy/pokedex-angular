@@ -1,0 +1,17 @@
+<div flex fxLayout="row" fxLayoutAlign="space-evenly center" class="title-container">
+  <button (click)="goToPrevious(pokemon.id)" mat-icon-button [disabled]="!canGoToPrevious(pokemon.id)"
+  aria-label="Go to previous pokemon"
+  class="prev">
+    <mat-icon class="icon">keyboard_arrow_left</mat-icon>
+  </button>
+  <button (click)="goToNext(pokemon.id)" mat-icon-button [disabled]="!canGoToNext(pokemon.id)"
+  aria-label="Go to next pokemon"
+  class="next">
+    <mat-icon class="icon">keyboard_arrow_right</mat-icon>
+  </button>
+  <button (click)="goToList()" mat-icon-button
+  aria-label="Go to list"
+  class="next">
+    <mat-icon class="icon">list</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,63 @@
+<div fxLayout="column"
+  fxLayoutAlign="center flex-end"
+  fxLayoutAlign.xs="center center"
+  class="stats-container">
+  <mat-card
+  fxFlexOffset.lg="2%"
+  fxLayoutAlign="center center"
+   class="pokemon-data">
+   <mat-card-content
+     fxFlex.lg="50%"
+     fxFLex.md="40%"
+     fxLayout.gt-xs="column"
+     fxLayout.xs="column"
+     fxLayoutAlign="center center"
+     class="content">
+      <div flex fxLayout="column">
+        <span class="attribute">Height: <b>{{ pokemon.getFormattedHeight() }} m</b></span>
+        <span class="attribute">Weight: <b>{{ pokemon.getFormattedWeight() }} kg</b></span>
+      </div>
+      <div *ngIf="mutltipliers$ | async; let mutltipliers"
+        flex
+        fxLayout="column"
+        fxLayoutAlign="center center">
+        <mat-slide-toggle (change)="switchMultipliers($event)" color="primary" class="switch">
+          Multiplier {{ switchTitle }}
+        </mat-slide-toggle>
+        <mat-chip-list *ngIf="switchTitle === 'attack'" class="attack-relations">
+          <ng-container *ngFor="let type of (mutltipliers.attack) | keyvalue">
+              <mat-chip
+              [ngStyle]="{'background-color': color[type.key] }"
+              selected>
+              {{ type.key }}: x{{ type.value }}
+             </mat-chip>
+          </ng-container>
+        </mat-chip-list>
+        <mat-chip-list *ngIf="switchTitle === 'defense'" class="defense-relations">
+          <ng-container *ngFor="let type of (mutltipliers.defense) | keyvalue">
+              <mat-chip
+              [ngStyle]="{'background-color': color[type.key] }"
+              selected>
+              {{ type.key }}: x{{ type.value }}
+             </mat-chip>
+          </ng-container>
+        </mat-chip-list>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card
+    fxFlex.lg="50%"
+    fxFLex.md="60%"
+    fxFlex.xs="100%"
+    id="chart"
+    class="chart-card">
+    <apx-chart
+       [series]="chartOptions.series"
+       [chart]="chartOptions.chart"
+       [xaxis]="chartOptions.xaxis"
+       [title]="chartOptions.title"
+       [colors]="chartOptions.options.colors"
+     >
+    </apx-chart>
+  </mat-card>
+</div>

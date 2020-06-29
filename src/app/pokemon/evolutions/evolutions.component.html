@@ -1,0 +1,33 @@
+<div flex fxLayout="row" fxLayoutAlign="flex-end center" fxLayoutAlign.xs="center">
+  <mat-card class="pokemon-card">
+    <mat-card-header>
+      <mat-card-title class="evolution-title">Evolutions</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ngx-graph
+       [links]="ngxData.links"
+       [nodes]="ngxData.nodes"
+       [draggingEnabled]="draggingEnabled"
+       [panningEnabled]="panningEnabled"
+       [enableZoom]="zoomEnabled"
+       [zoomSpeed]="zoomSpeed"
+       [minZoomLevel]="minZoomLevel"
+       [maxZoomLevel]="maxZoomLevel"
+       [panOnZoom]="panOnZoom"
+       [autoZoom]="autoZoom"
+       [autoCenter]="autoCenter"
+       [center$]="center$"
+       [panningAxis]="'vertical'"
+       [layout]="'dagreCluster'"
+       [zoomToFit$]="zoomToFit$">
+         <ng-template #nodeTemplate let-node>
+           <svg:g class="node">
+             <svg [attr.width]="node.dimension.width" [attr.height]="node.dimension.height">
+               <image (click)="goToDetails(node.id)" x="0%" y="0%" width="50" height="100" [attr.href]="node.meta.link" class="pokemon-node"></image>
+             </svg>
+           </svg:g>
+        </ng-template>
+      </ngx-graph>
+    </mat-card-content>
+  </mat-card>
+</div>

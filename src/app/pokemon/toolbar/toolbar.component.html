@@ -1,0 +1,27 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <mat-form-field class="autocomplete-pokemon">
+      <input type="text"
+             matInput
+             [formControl]="formControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <cdk-virtual-scroll-viewport
+          itemSize="50"
+          [style.height.px]="4 * 50"
+          class="virtual-container"
+        >
+            <mat-option
+            *cdkVirtualFor="let option of filteredOptions | async"
+              [id]="option.value"
+              [value]="option.value"
+              (click)="goToDetails(option.value)"
+              matTooltipPosition="right"
+            >
+              <span [innerHTML]="option.label | highlight: highLightOption"></span>
+            </mat-option>
+        </cdk-virtual-scroll-viewport>
+      </mat-autocomplete>
+    </mat-form-field>
+  </mat-toolbar-row>
+</mat-toolbar>

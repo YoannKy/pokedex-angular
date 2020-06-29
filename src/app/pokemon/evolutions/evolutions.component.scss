@@ -1,0 +1,22 @@
+.pokemon-card {
+  box-shadow: none;
+  background: rgb(251,251,251);
+  background: -moz-linear-gradient(228deg, rgba(33, 33, 33) 80%, rgba(204, 14, 15, 0) 86%);
+  background: -webkit-linear-gradient(228deg, rgba(33, 33, 33) 80%, rgba(204, 14, 15, 0) 86%);
+  background: linear-gradient(228deg, rgba(33, 33, 33) 80%, rgba(204, 14, 15, 0) 86%);
+
+  .evolution-title {
+    color: white;
+  }
+}
+
+.pokemon-node {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 599px) {
+  .pokemon-card {
+    background: none;
+    background-color: #212121;
+  }
+}

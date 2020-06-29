@@ -1,0 +1,22 @@
+<mat-card class="pokemon-card" (click)="goToDetails(pokemon.id)">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <img mat-card-image src="{{ pokemon.sprites.front_default }}" alt="Photo of a {{pokemon.name}}">
+      </div>
+    <mat-card-title>{{ pokemon.name }}</mat-card-title>
+    <mat-card-subtitle class="pokemon-id">{{ pokemon.getFormattedId() }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{ pokemon.image }}" alt="Photo of a {{pokemon.name}}" class="pokemon-image">
+  <mat-card-content>
+    <mat-chip-list flex>
+      <ng-container *ngFor="let type$ of pokemon.types">
+          <mat-chip
+          *ngIf="type$ |async as type"
+          [ngStyle]="{'background-color': color[type.name] }"
+          selected>
+          {{ type.name }}
+         </mat-chip>
+      </ng-container>
+    </mat-chip-list>
+  </mat-card-content>
+</mat-card>

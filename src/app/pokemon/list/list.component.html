@@ -1,0 +1,13 @@
+<app-toolbar *ngIf="pokemons"></app-toolbar>
+<cdk-virtual-scroll-viewport
+  class ="pokemon-list-container"
+  itemSize="100">
+  <div flex
+    gdColumns.gt-xs="1fr 1fr"
+    gdColumns.gt-sm="1fr 1fr 1fr 1fr"
+    gdGap="1%"
+    gdGap.gt-sm="4%">
+      <app-card *cdkVirtualFor="let pokemon of pokemons" [pokemon]="pokemon"></app-card>
+  </div>
+</cdk-virtual-scroll-viewport>
+<app-loader *ngIf="fetching" [text]="'Loading more pokemon'"></app-loader>
